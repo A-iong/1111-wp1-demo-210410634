@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import Menu_05 from './components/Menu_05';
-import Categories_05 from './components/Categories_05';
+import Menu_34 from './components/Menu_34';
+import Categories_34 from './components/Categories_34';
 import items from './data';
 
 const allCategories=['all', 'breakfast','lunch','shakes', 'dinner']
 
-const App_05 = () => {
+const App_34 = () => {
   const [menuItems, setMenuItems] = useState(items);
  const [categories, setCategories]=useState(allCategories);
  console.log('categories',categories)
@@ -18,13 +18,13 @@ const App_05 = () => {
     <div className='underline'></div>
   </div>
   {/* filter buttons */}
-  <Categories_05 categories={categories}/>
+  <Categories_34 categories={categories}/>
   {/* menu items*/}
- <Menu_05 items={menuItems}/>
+ <Menu_34 items={menuItems}/>
     </section>
   
   );
 };
 
-export default App_05;
+export default App_34;
 
