@@ -1,6 +1,6 @@
 import React from 'react'
 import { FaEdit, FaTrash } from 'react-icons/fa'
-const List_34 = ({items}) => {
+const List_34 = ({items, removeItem}) => {
   return (
     <div className="grocery-list">
       { items.map( (item) =>{
@@ -11,7 +11,7 @@ const List_34 = ({items}) => {
             <div className="btn-container">            
             <button className='edit-btn'>
               <FaEdit />
-              <button type='button' className='delete-btn'>
+              <button type='button' className='delete-btn'onClick={() => removeItem(id)}>
                 <FaTrash />
               </button>
             </button></div>
