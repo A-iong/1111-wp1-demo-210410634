@@ -1,80 +1,49 @@
-import React, { useState, useEffect } from 'react'
-import List_34 from './components/List_34'
-import Alert_34 from './components/Alert_34'
-
-const getLocalStorage = () =>{
-  let list = localStorage.getItem('list');
-  if(list) {
-    return JSON.parse(localStorage.getItem('list'));
-  }else{
-    return[];
-  }
-}
+import data from './blogData_34'
+import BlogList_34 from './components/BlogList_34';
+import Alert_34 from './components/Alert_34';
 
 const App_34 = () => {
-  const [name,setName] = useState('');
-  const [list,setList] = useState(getLocalStorage());
+  const [blogs, setBlogs] = useState(data);
   const [alert,setAlert] = useState({
     show: false,
     msg: '',
     type: '',
 });
 
-useEffect(() =>{
-  localStorage.setItem('list', JSON.stringify(list));
-}, [list]);
 
-const showAlert = (show = false, msg = '',type = '') => {
-    setAlert({show,msg,type});
-}
-
-const handleSubmit = (e) =>{
-  e.preventDefault();
-  if(!name){
-    showAlert(true, 'please enter value', 'danger');
-    //
-  }else {
-    showAlert(true, 'value changed', 'success');
-    const newItem ={
-      id: new Date().getTime().toString(),
-      title: name
-    };
-    setList([...list, newItem]);
-    setName('');
+  const removeItem = (id) => {
+    showAlert(true , 'blog removed','danger');
+    setBlogs( blogs.filter( (blog) => blog.id !== id));
   }
-};
-
-const removeItem = (id) => {
-  showAlert(true,'item removed','danger');
-    setList( list.filter((item)=> item.id !== id));
-};
-
-const clearList = () =>{
-  showAlert(true,'empty list','danger');
-  setList([]);
-};
-
-  return(
+  const clearBlogs = () => {
+    showAlert(true , 'empty all blogs','danger');
+    setBlogs( [] );
+  }
+  
+  return (
     <>
-    <section className="section-center">
-      <form  className="grocery-from" onSubmit={handleSubmit}>
-        { alert.show && <Alert_34 {...alert} removeAlert={showAlert}/>}
-        <h3>Grocery Bud - 210410634</h3>
-        <div className="form-control">
-          <input type="text" className="grocery" placeholder="e.g. eggs" value={name} onChange={ (e)=>{setName(e.target.value
-            )}} />
-          <button type="submit" className="submit-btn">submit</button>
-        </div>
-      </form>
-      { list.length > 0 &&(
-        <div className="grocery-container">
-          <List_34 items={list} removeItem={removeItem}/>
-          <button className="clear-btn" onClick={clearList}>clear items</button>
-        </div>
-      )}
-      </section>
-      </>
-  )
-}
+    <section className="blogs">
+    { alert.show && <Blog_34 {...alert} removeAlert={showAlert}/>}
+      <div className="section-title">
+        <h2>CSS Grid using breakpoints</h2>
+      </div>
+      <div className="filter-container">
+      <button type="button" className="filter-btn" onClick={() =>filterItems('all')}>
+        all</button>
+      <button type="button" className="filter-btn" onClick={() =>filterItems('lifestyle')}>
+        lifestyle</button>
+      <button type="button" className="filter-btn" onClick={() =>filterItems('travel')}>
+        travel</button>
+      </div>
+      <div className="blogs-center">
+          <BlogList_34 key={1} blogs={blogs} removeItem={removeItem} />
+      </div>
+      <button className='clear-btn' onClick={clearBlogs}>
+        clear all blogs
+      </button>
+    </section>
+    </>
+  );
+};
 
-export default App_34
+export default App_34;
