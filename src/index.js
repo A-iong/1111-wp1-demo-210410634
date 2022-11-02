@@ -2,7 +2,7 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
 import './index.css';
-import App_05 from './App_05';
+import App_34 from './App_34';
 
 // 👇️ IMPORTANT: use correct ID of your root element
 // this is the ID of the div in your index.html file
@@ -14,6 +14,6 @@ const root = createRoot(rootElement);
 
 root.render(
   <StrictMode>
-    <App_05 />
+    <App_34 />
   </StrictMode>
 );
