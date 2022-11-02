@@ -7,6 +7,7 @@ import ErrorPage_34 from './pages/ErrorPage_34';
 import SharedLayout_34 from './pages/SharedLayout_34';
 import SingleProductPage_34 from './pages/SingleProductPage_34';
 import SharedProductLayout_34 from './pages/SingleProductPage_34';
+import BooklistPage_34 from './pages/booklistPage_34';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path=":productId" element={<SingleProductPage_34/>}/>
         
         </Route>
+        <Route path="Booklist" element={<BooklistPage_34/>}/>
         <Route path='*' element={<ErrorPage_34/>}/>
       </Route>
     </Routes>
