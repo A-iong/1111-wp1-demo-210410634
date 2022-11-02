@@ -1,4 +1,4 @@
-const Products_xx = () => {
+const Products_34 = () => {
   return (
     <>
       <section className='section'>
@@ -8,4 +8,4 @@ const Products_xx = () => {
   );
 };
 
-export default Products_xx;
+export default Products_34;
