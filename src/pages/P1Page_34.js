@@ -25,7 +25,6 @@ const P1Page_34 = () => {
             </article>
           </div>
         </div>
-
         <div className="products-right">
           <div className="products-container">
             <div className="single-product">
@@ -40,17 +39,14 @@ const P1Page_34 = () => {
                 <span className="price">$29.98</span>
               </footer>
             </div>
-
             <div className="single-product">
               <img
                 src="/images/product-5.jpg"
                 className="single-product-img img"
                 alt="dining table"
               />
-
               <footer>
                 <h5 className="name">dining table</h5>
-
                 <span className="price">$6.99</span>
               </footer>
             </div>
