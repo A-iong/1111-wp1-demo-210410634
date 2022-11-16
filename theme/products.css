@@ -48,7 +48,7 @@ html {
   --borderRadius: 0.25rem;
   --letterSpacing: 1px;
   --transition: 0.3s ease-in-out all;
-  --max-width: 1500px;
+  --max-width: 1120px;
   --fixed-width: 600px;
 
   /* box shadow*/
@@ -70,61 +70,6 @@ body {
   color: var(--textColor);
 }
 
-.section {
-  width: 90%;
-  max-width: var(--max-width);
-  padding: 2rem 0;
-  margin: 0 auto;
-}
-
-/*
-===============
-Alert
-===============
-*/
-
-.alert {
-  margin-bottom: 1rem;
-  height: 1.25rem;
-  display: grid;
-  align-items: center;
-  text-align: center;
-  font-size: 0.7rem;
-  border-radius: 0.25rem;
-  letter-spacing: var(--spacing);
-  text-transform: capitalize;
-}
-.alert-danger {
-  color: #721c24;
-  background: #f8d7da;
-}
-.alert-success {
-  color: #155724;
-  background: #d4edda;
-}
-
-/*
-===============
-Navbar
-===============
-*/
-
-.navbar {
-  width: 90%;
-  height: 50px;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 2rem;
-}
-
-.navbar .links {
-  display: flex;
-  gap: 2rem;
-}
-
 /*
 ===============
 Product -- Main
@@ -133,7 +78,7 @@ Product -- Main
 
 .main-section {
   min-height: 100vh;
-  width: 100%;
+  width: 90vw;
   margin: 2rem auto;
   display: grid;
   grid-template-columns: 10fr 90fr;
@@ -173,11 +118,6 @@ Filter -- Left
   letter-spacing: var(--letterSpacing);
 }
 
-.input-form {
-  display: flex;
-  justify-content: center;
-}
-
 .company-btn {
   display: block;
   margin: 0.25em 0;
@@ -195,32 +135,6 @@ Filter -- Left
   color: var(--grey-700);
 }
 
-.clear-btn {
-  display: block;
-  width: 80%;
-  padding: 0.5rem 1rem;
-  background-color: rgba(255, 0, 0, 0.2);
-  color: rgba(255, 0, 0, 0.5);
-  font-size: 1rem;
-  font-weight: 600;
-  margin-top: 2rem;
-  border: 1px solid rgba(255, 0, 0, 0.4);
-  cursor: pointer;
-}
-
-.fetch-btn {
-  display: block;
-  width: 80%;
-  padding: 0.5rem 1rem;
-  background-color: rgba(0, 0, 255, 0.2);
-  color: rgba(0, 0, 255, 0.5);
-  font-size: 1rem;
-  font-weight: 600;
-  margin-top: 2rem;
-  border: 1px solid rgba(0, 0, 255, 0.4);
-  cursor: pointer;
-}
-
 /*
 ===================
 Product -- Right
@@ -228,10 +142,10 @@ Product -- Right
 */
 
 .products-container {
-  width: 95%;
+  width: 80%;
   margin: 2.5rem auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
   gap: 3rem;
   justify-content: center;
   align-items: center;
@@ -246,7 +160,7 @@ Product -- Right
 .single-product-img {
   display: block;
   width: 100%;
-  height: 12rem;
+  height: 15rem;
   object-fit: cover;
   border-radius: var(--borderRadius);
 }
