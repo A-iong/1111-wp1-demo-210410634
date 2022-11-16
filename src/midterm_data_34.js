@@ -10,7 +10,7 @@ const midterm_data_34 = [{
     img: '/images/product-2.jpg',
     name: 'albany table',
     price: 79.99,
-    category: 'macros',
+    category: 'marcos',
   },
   {
     id: 3,
@@ -31,7 +31,7 @@ const midterm_data_34 = [{
     img: '/images/product-5.jpg',
     name: 'dining table',
     price: 6.99,
-    category: 'macros',
+    category: 'marcos',
   },
   {
     id: 6,
@@ -52,7 +52,7 @@ const midterm_data_34 = [{
     img: '/images/product-8.jpg',
     name: 'emperor bed',
     price: 21.99,
-    category: 'macros',
+    category: 'marcos',
   },
   {
     id: 9,
@@ -73,7 +73,7 @@ const midterm_data_34 = [{
     img: '/images/product-11.jpg',
     name: 'albany sectional',
     price: 10.99,
-    category: 'macros',
+    category: 'marcos',
   },
   {
     id: 12,
