@@ -45,12 +45,61 @@ const [products, setProducts] = useState(data_34);
 
 <div className="products-right">
   <div className="products-container">
-    {products.map((products) => { const { id, img, name, price } = products;
-    return (
-    <Product_34 key="{id}" img="{img}" name="{name}" price="{price}" />
-    ); })}
+    {products.map((products) => {
+      const { id, img, name, price } = products;
+      return (
+        <Product_34 key="{id}" img="{img}" name="{name}" price="{price}" />
+      );
+    })}
   </div>
-</div>
+</div>;
+```
+
+### 3. 實作 hooks 功能 (30%)
+
+3.1 篩選車款功能
+   ![button-mercedes](img/button-mercedes.png)
+   ![button-bmw](img/button-bmw.png)
+   ![button-audi](img/button-audi.png)
+   ![button-porsche](img/button-porsche.png)
+   ![button-all](img/button-all.png)
+
+```js
+useEffect(() => {
+  const filterProducts = data_34.filter((product) =>
+    product.name.toLowerCase().includes(searchName.toLowerCase())
+  );
+  setProducts(filterProducts);
+}, [searchName]);
+
+const filterItems = (category) => {
+  if (category === 'all') {
+    setProducts(data_34);
+  } else {
+    const newProducts = data_34.filter(
+      (products) => products.category === category
+    );
+    setProducts(newProducts);
+  }
+};
+
+<article className="companies">
+  <button className="company-btn" onClick={() => filterItems('all')}>
+    All
+  </button>
+  <button className="company-btn" onClick={() => filterItems('mercedes')}>
+    Mercedes-Banz
+  </button>
+  <button className="company-btn" onClick={() => filterItems('bmw')}>
+    BMW
+  </button>
+  <button className="company-btn" onClick={() => filterItems('audi')}>
+    AUDI
+  </button>
+  <button className="company-btn" onClick={() => filterItems('porsche')}>
+    Porsche
+  </button>
+</article>;
 ```
 
 #### 1.3 theme 介紹:
