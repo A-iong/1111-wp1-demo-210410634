@@ -8,6 +8,7 @@ const Navbar_34 = () => {
       </div>
       <div className='links'>
         <Link to='/'>Home</Link>
+        <Link to='Page'>Page</Link>
       </div>
     </nav>
   );
