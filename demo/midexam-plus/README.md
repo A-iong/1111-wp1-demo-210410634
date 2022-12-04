@@ -58,11 +58,11 @@ const [products, setProducts] = useState(data_34);
 ### 3. 實作 hooks 功能 (30%)
 
 3.1 篩選車款功能
-   ![button-mercedes](img/button-mercedes.png)
-   ![button-bmw](img/button-bmw.png)
-   ![button-audi](img/button-audi.png)
-   ![button-porsche](img/button-porsche.png)
-   ![button-all](img/button-all.png)
+![button-mercedes](img/button-mercedes.png)
+![button-bmw](img/button-bmw.png)
+![button-audi](img/button-audi.png)
+![button-porsche](img/button-porsche.png)
+![button-all](img/button-all.png)
 
 ```js
 useEffect(() => {
@@ -82,6 +82,26 @@ const filterItems = (category) => {
     setProducts(newProducts);
   }
 };
+
+<article className="companies">
+  <button className="company-btn">All</button>
+  <button className="company-btn">Mercedes-Banz</button>
+  <button className="company-btn">BMW</button>
+  <button className="company-btn">AUDI</button>
+  <button className="company-btn">Porsche</button>
+</article>;
+```
+
+3.2 搜尋車款功能
+![filter](img/filter.png)
+
+```js
+useEffect(() => {
+  const filterProducts = data_34.filter((product) =>
+    product.name.toLowerCase().includes(searchName.toLowerCase())
+  );
+  setProducts(filterProducts);
+}, [searchName]);
 
 <article className="companies">
   <button className="company-btn" onClick={() => filterItems('all')}>

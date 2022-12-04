@@ -13,6 +13,13 @@ const All_Page = () => {
     setProducts(filterProducts);
   }, [searchName]);
 
+  useEffect(() => {
+    const filterProducts = data_34.filter((product) =>
+      product.name.toLowerCase().includes(searchName.toLowerCase())
+    );
+    setProducts(filterProducts);
+  }, [searchName]);
+
   const filterItems = (category) => {
     if (category === 'all') {
       setProducts(data_34);
@@ -32,6 +39,10 @@ const All_Page = () => {
             <form className="input-form">
               <input
                 type="text"
+                value={searchName}
+                onChange={(e) => {
+                  setSearchName(e.target.value);
+                }}
                 className="search-input"
                 placeholder="search..."
               />
