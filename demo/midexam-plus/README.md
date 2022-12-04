@@ -55,6 +55,12 @@ const [products, setProducts] = useState(data_34);
 </div>;
 ```
 
+#### 1.3 theme 介紹:
+
+參考上課做的 DEMO 和期中考試內容
+
+### 第三部分
+
 ### 3. 實作 hooks 功能 (30%)
 
 3.1 篩選車款功能
@@ -122,8 +128,32 @@ useEffect(() => {
 </article>;
 ```
 
-#### 1.3 theme 介紹:
+3.3 清除和取得車款功能
+![clear](img/clear-all.png)
+![fetch](img/fetch-all.png)
 
-參考上課做的 DEMO 和期中考試內容
+```js
+const [alert, setAlert] = useState({
+  show: false,
+  msg: '',
+  type: '',
+});
 
-### 第二部分
+const showAlert = (show = false, msg = '', type = '') => {
+  setAlert({ show, msg, type });
+};
+
+const clearAllProducts = () => {
+  showAlert(true, 'all products deleted', 'danger');
+  setProducts([]);
+};
+
+const fetchAllProducts = () => {
+  // showAlert(true,'empty list','danger');
+  setProducts(data_34);
+};
+
+{
+  alert.show && <Alert_34 {...alert} removeAlert={showAlert} />;
+}
+```

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import Alert_34 from '../components/Alert_34';
 import Product_34 from '../components/Product_34';
 import data_34 from './data_34';
 
@@ -29,6 +30,26 @@ const All_Page = () => {
       );
       setProducts(newProducts);
     }
+  };
+
+  const [alert, setAlert] = useState({
+    show: false,
+    msg: '',
+    type: '',
+  });
+
+  const showAlert = (show = false, msg = '', type = '') => {
+    setAlert({ show, msg, type });
+  };
+
+  const clearAllProducts = () => {
+    showAlert(true, 'all products deleted', 'danger');
+    setProducts([]);
+  };
+
+  const fetchAllProducts = () => {
+    // showAlert(true,'empty list','danger');
+    setProducts(data_34);
   };
 
   return (
@@ -81,7 +102,14 @@ const All_Page = () => {
               </button>
             </article>
           </div>
+          <button className="clear-btn" onClick={clearAllProducts}>
+            Clear All
+          </button>
+          <button className="fetch-btn" onClick={fetchAllProducts}>
+            Fetch All
+          </button>
         </div>
+        {alert.show && <Alert_34 {...alert} removeAlert={showAlert} />}
         <div className="products-right">
           <div className="products-container">
             {products.map((products) => {
