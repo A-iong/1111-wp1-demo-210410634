@@ -1,33 +1,62 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import data from './blogData_34';
+import BlogList_34 from './components/BlogList_34';
+import Alert_34 from './components/Alert_34';
 
-import HomePage_34 from './pages/HomePage_34';
-import ErrorPage_34 from './pages/ErrorPage_34';
-import SharedLayout_34 from './pages/SharedLayout_34';
+const App_34 = () => {
+  const [blogs, setBlogs] = useState(data);
+  const [alert, setAlert] = useState({
+    show: false,
+    msg: '',
+    type: '',
+  });
 
-import P1Page_34 from './pages/P1Page_34';
-import P2Page_34 from './pages/P2Page_34';
-import P3Page_34 from './pages/P3Page_34';
-import P4Page_34 from './pages/P4Page_34';
-import P5Page_34 from './pages/P5Page_34';
-import P6Page_34 from './pages/P6Page_34';
+  const showAlert = (show = false, msg = '', type = '') => {
+    setAlert({ show, msg, type });
+  };
 
-function App() {
+  console.log('blogs', blogs);
+
+  const removeItem = (id) => {
+    showAlert(true, 'blog removed', 'danger');
+    setBlogs(blogs.filter( (blog) => blog.id !== id));
+  }
+
+  const clearBlogs = () => {
+    showAlert(true, 'empty all blogs', 'danger');
+    setBlogs([]);
+  }
+
+  const filterItems = (category) => {
+    if(category === 'all') {
+      setBlogs(data);
+    } else {
+      const newBlogs = data.filter( (blog) => blog.category === category); 
+      setBlogs(newBlogs);
+    }
+  }
+
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path='/' element={<SharedLayout_34 />}>
-          <Route index element={<HomePage_34 />} />
-          <Route path='P1_34' element={<P1Page_34 />} />
-          <Route path='P2_34' element={<P2Page_34 />} />
-          <Route path='P3_34' element={<P3Page_34 />} />
-          <Route path='P4_34' element={<P4Page_34 />} />
-          <Route path='P5_34' element={<P5Page_34 />} />
-          <Route path='P6_34' element={<P6Page_34 />} />
-          <Route path='*' element={<ErrorPage_34 />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <>
+    <section className="blogs">
+    {alert.show && <Alert_34 {...alert} removeAlert={showAlert} />}
+      <div className="section-title">
+        <h2>CSS Grid using breakpoints</h2>
+      </div>
+      <div className="filter-container">
+        <button type="button" className="filter-btn" onClick={() => filterItems('all')}>all</button>
+        <button type="button" className="filter-btn" onClick={() => filterItems('lifestyle')}>lifestyle</button>
+        <button type="button" className="filter-btn" onClick={() => filterItems('travel')}>travel</button>
+      </div>
+      <div className="blogs-center">
+        <BlogList_34 key={1} blogs={blogs} removeItem={removeItem}/>
+      </div>
+      <button className='clear-btn' onClick={clearBlogs}>
+        clear all blogs
+      </button>
+    </section>
+    </>
   );
-}
+};
 
-export default App;
+export default App_34;
