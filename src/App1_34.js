@@ -69,7 +69,13 @@ const BlogList_34 = ()  => {
         { blogs.map( (blog) => {
            const {id, img, title, desc, category} = blog;
            return (
-            <Blog_34 key={id} id={id} img={img} title={title} desc={desc} category={category} />
+            <Blog_34 
+            key={id} 
+            id={id} 
+            img={img} 
+            title={title} 
+            desc={desc} 
+            category={category} />
            )
         }) }
       </div>
@@ -99,6 +105,11 @@ const Blog_34 = ({id, img, title, desc, category}) => {
     </div>
   </article>
   )
+}
+
+
+const userBlongContext = () => {
+  return userBlongContext(BlogContext)
 }
 
 export default App1_34;
