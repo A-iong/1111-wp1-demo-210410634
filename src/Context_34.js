@@ -9,8 +9,8 @@ const AppContext_34 = React.createContext();
 const initialstate = {
   loading: false,
   cart: cartItem,
-  amount: 0,
-  total: 0,
+  amount: 4,
+  total: 999.9,
 }
 
 const AppProvider_34 = ({children}) => {
