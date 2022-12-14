@@ -1,11 +1,23 @@
-const Reducer_34 = (state, action) => {
+const Reducer_05 = (state, action) => {
   if (action.type === 'CLEAR_CART') {
     return { ...state, cart: [], amount: 0, total: 0 };
+  }
+  if (action.type === 'REMOVE_BUTTON') {
+    return { ...state, cart: [] };
   }
   if (action.type === 'INCREASE') {
     let tempCart = state.cart.map((cartItem) => {
       if (cartItem.id === action.payload) {
         return { ...cartItem, amount: cartItem.amount + 1 };
+      }
+      return cartItem;
+    });
+    return { ...state, cart: tempCart };
+  }
+  if (action.type === 'DECREASE') {
+    let tempCart = state.cart.map((cartItem) => {
+      if (cartItem.id === action.payload) {
+        return { ...cartItem, amount: cartItem.amount - 1 };
       }
       return cartItem;
     });
@@ -25,11 +37,9 @@ const Reducer_34 = (state, action) => {
         amount: 0,
       }
     );
-
     total = parseFloat(total.toFixed(2));
-
     return { ...state, total, amount };
   }
 };
 
-export default Reducer_34;
+export default Reducer_05;
