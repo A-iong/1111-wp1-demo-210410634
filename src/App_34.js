@@ -9,13 +9,13 @@ import CartContainer_34 from './components/CartContainer_34';
 
 const App_34 = () => {
   const { loading, cart} = useGlobalContext_34();
-  // if (loading) {
-  //   return (
-  //     <div className='loading'>
-  //       <h1>Loading...</h1>
-  //     </div>
-  //   );
-  // }
+  if (loading) {
+    return (
+      <div className='loading'>
+        <h1>Loading...</h1>
+      </div>
+    );
+  }
   return (
     <main>
       <Navbar_34 />
