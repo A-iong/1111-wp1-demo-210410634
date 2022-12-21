@@ -56,7 +56,7 @@ useEffect(()=>{
 }, [])
 
   return (
-    <AppContext_34.Provider value={{ ...state, clearCart, increase, remove}}>
+    <AppContext_34.Provider value={{ ...state, clearCart, increase,decrease, remove}}>
       {children}
     </AppContext_34.Provider>
   );

@@ -19,7 +19,10 @@ const Reducer_34 = (state, action) => {
       }
       return cartItem;
     });
-    return { ...state, cart: tempCart };
+
+    let temp2Cart = tempCart.filter((item) => item.amount !== 0);
+
+    return { ...state, cart: temp2Cart };
   }
 
   if (action.type === 'GET_TOTALS') {
