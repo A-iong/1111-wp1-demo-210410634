@@ -40,7 +40,7 @@ const BlogContextProvider_34 = ({ children }) => {
 
   return (
     <BlogContext_34.Provider
-      value={{ blogs, alert, removeItem, clearBlogs, filterItems, showAlert }}
+      value={{ ...state, alert, removeItem, clearBlogs, filterItems, showAlert }}
     >
       {children}
     </BlogContext_34.Provider>
