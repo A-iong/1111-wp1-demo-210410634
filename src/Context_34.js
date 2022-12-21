@@ -39,6 +39,10 @@ const AppProvider_34 = ({ children }) => {
     dispatch({ type: 'DECREASE', payload: id });
   };
 
+  const remove = (id) => {
+    dispatch({ type: 'REMOVE', payload: id});
+  }
+
 const fetchData = async () => {
   dispatch({ type: 'LOADING'});
   const response = await fetch(url);
@@ -52,7 +56,7 @@ useEffect(()=>{
 }, [])
 
   return (
-    <AppContext_34.Provider value={{ ...state, clearCart, increase, decrease }}>
+    <AppContext_34.Provider value={{ ...state, clearCart, increase, remove}}>
       {children}
     </AppContext_34.Provider>
   );
